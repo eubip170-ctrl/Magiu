@@ -43,13 +43,6 @@ export function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="mailto:info@magiu.it"
-          className="hidden rounded-full bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90 md:inline-block"
-        >
-          Richiedi un preventivo
-        </a>
-
         {/* Toggle mobile */}
         <button
           type="button"
