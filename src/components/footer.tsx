@@ -29,6 +29,11 @@ export function Footer() {
                 Ristoranti
               </Link>
             </li>
+            <li>
+              <a href="/api/esci" className="hover:text-foreground">
+                Esci
+              </a>
+            </li>
           </ul>
         </div>
 
