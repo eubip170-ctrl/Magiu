@@ -24,6 +24,11 @@ export function Footer() {
                 Servizi
               </Link>
             </li>
+            <li>
+              <Link href="/ristoranti" className="hover:text-foreground">
+                Ristoranti
+              </Link>
+            </li>
           </ul>
         </div>
 
