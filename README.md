@@ -6,9 +6,7 @@ TypeScript e Tailwind CSS, pronto per la pubblicazione su [Vercel](https://verce
 ## Funzionalità
 
 - **Home** — landing page con hero, funzionalità e call-to-action
-- **Chi siamo** — presentazione e valori
 - **Servizi** — elenco dei servizi offerti
-- **Blog** — elenco articoli e pagine articolo dinamiche (`/blog/[slug]`, generate staticamente)
 
 I contatti avvengono tramite link email (`mailto:`) presenti nell'header, nel footer e nelle call-to-action.
 
@@ -19,11 +17,8 @@ src/
 ├── app/
 │   ├── layout.tsx          # Layout root (Navbar + Footer, metadata SEO)
 │   ├── page.tsx            # Home
-│   ├── chi-siamo/          # Pagina "Chi siamo"
-│   ├── servizi/            # Pagina "Servizi"
-│   └── blog/               # Elenco blog + [slug] dinamico
-├── components/             # Navbar, Footer
-└── lib/posts.ts            # Dati di esempio degli articoli
+│   └── servizi/            # Pagina "Servizi"
+└── components/             # Navbar, Footer
 ```
 
 ## Sviluppo locale

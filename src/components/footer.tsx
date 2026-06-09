@@ -20,18 +20,8 @@ export function Footer() {
           <p className="text-sm font-semibold">Navigazione</p>
           <ul className="mt-3 space-y-2 text-sm text-muted">
             <li>
-              <Link href="/chi-siamo" className="hover:text-foreground">
-                Chi siamo
-              </Link>
-            </li>
-            <li>
               <Link href="/servizi" className="hover:text-foreground">
                 Servizi
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog" className="hover:text-foreground">
-                Blog
               </Link>
             </li>
           </ul>
