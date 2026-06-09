@@ -34,11 +34,6 @@ export function Footer() {
                 Blog
               </Link>
             </li>
-            <li>
-              <Link href="/contatti" className="hover:text-foreground">
-                Contatti
-              </Link>
-            </li>
           </ul>
         </div>
 

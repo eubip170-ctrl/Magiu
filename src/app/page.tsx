@@ -52,12 +52,12 @@ export default function Home() {
             pensate per far crescere la tua attività online.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/contatti"
+            <a
+              href="mailto:info@magiu.it"
               className="w-full rounded-full bg-brand px-6 py-3 font-semibold text-brand-foreground transition-opacity hover:opacity-90 sm:w-auto"
             >
               Iniziamo insieme
-            </Link>
+            </a>
             <Link
               href="/servizi"
               className="w-full rounded-full border border-border px-6 py-3 font-semibold transition-colors hover:bg-card sm:w-auto"
@@ -102,12 +102,12 @@ export default function Home() {
         <p className="mx-auto mt-4 max-w-xl text-muted">
           Raccontaci il tuo progetto: ti risponderemo con una proposta su misura.
         </p>
-        <Link
-          href="/contatti"
+        <a
+          href="mailto:info@magiu.it"
           className="mt-8 inline-block rounded-full bg-brand px-6 py-3 font-semibold text-brand-foreground transition-opacity hover:opacity-90"
         >
           Contattaci ora
-        </Link>
+        </a>
       </section>
     </div>
   );

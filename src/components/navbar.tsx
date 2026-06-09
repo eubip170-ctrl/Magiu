@@ -9,7 +9,6 @@ export const NAV_LINKS = [
   { href: "/chi-siamo", label: "Chi siamo" },
   { href: "/servizi", label: "Servizi" },
   { href: "/blog", label: "Blog" },
-  { href: "/contatti", label: "Contatti" },
 ] as const;
 
 export function Navbar() {
@@ -46,12 +45,12 @@ export function Navbar() {
           ))}
         </ul>
 
-        <Link
-          href="/contatti"
+        <a
+          href="mailto:info@magiu.it"
           className="hidden rounded-full bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90 md:inline-block"
         >
           Richiedi un preventivo
-        </Link>
+        </a>
 
         {/* Toggle mobile */}
         <button

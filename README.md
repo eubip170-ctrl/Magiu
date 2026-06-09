@@ -9,8 +9,8 @@ TypeScript e Tailwind CSS, pronto per la pubblicazione su [Vercel](https://verce
 - **Chi siamo** — presentazione e valori
 - **Servizi** — elenco dei servizi offerti
 - **Blog** — elenco articoli e pagine articolo dinamiche (`/blog/[slug]`, generate staticamente)
-- **Contatti** — form interattivo collegato a un'API lato server
-- **API** — route handler Node.js in `POST /api/contatti` con validazione
+
+I contatti avvengono tramite link email (`mailto:`) presenti nell'header, nel footer e nelle call-to-action.
 
 ## Struttura del progetto
 
@@ -21,10 +21,8 @@ src/
 │   ├── page.tsx            # Home
 │   ├── chi-siamo/          # Pagina "Chi siamo"
 │   ├── servizi/            # Pagina "Servizi"
-│   ├── blog/               # Elenco blog + [slug] dinamico
-│   ├── contatti/           # Pagina contatti
-│   └── api/contatti/       # API route (backend)
-├── components/             # Navbar, Footer, ContactForm
+│   └── blog/               # Elenco blog + [slug] dinamico
+├── components/             # Navbar, Footer
 └── lib/posts.ts            # Dati di esempio degli articoli
 ```
 

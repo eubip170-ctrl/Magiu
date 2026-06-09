@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Servizi",
@@ -68,12 +67,12 @@ export default function ServiziPage() {
           Ogni progetto è unico. Parlaci della tua esigenza e troveremo la
           soluzione giusta.
         </p>
-        <Link
-          href="/contatti"
+        <a
+          href="mailto:info@magiu.it"
           className="mt-6 inline-block rounded-full bg-brand px-6 py-3 font-semibold text-brand-foreground transition-opacity hover:opacity-90"
         >
           Richiedi una consulenza
-        </Link>
+        </a>
       </div>
     </div>
   );
