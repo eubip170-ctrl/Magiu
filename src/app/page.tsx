@@ -40,6 +40,9 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-brand/10 to-transparent" />
         <div className="mx-auto max-w-6xl px-4 py-24 text-center sm:px-6 sm:py-32">
+          <p className="mb-8 text-5xl font-extrabold tracking-tight sm:text-7xl">
+            Ciao Amore <span className="text-red-500">❤️</span>
+          </p>
           <span className="inline-block rounded-full border border-border bg-card px-4 py-1 text-sm text-muted">
             Soluzioni digitali su misura
           </span>
