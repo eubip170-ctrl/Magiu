@@ -2,17 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  restaurants,
-  getRestaurantBySlug,
-  formatVisit,
-  mapEmbedUrl,
-} from "@/lib/ristoranti";
+import { formatVisit, mapEmbedUrl } from "@/lib/ristoranti";
+import { getRestaurantBySlug } from "@/lib/restaurants-store";
 import { Stars } from "@/components/stars";
 
-export function generateStaticParams() {
-  return restaurants.map((r) => ({ slug: r.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -20,7 +14,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const r = getRestaurantBySlug(slug);
+  const r = await getRestaurantBySlug(slug);
 
   if (!r) {
     return { title: "Ristorante non trovato" };
@@ -38,7 +32,7 @@ export default async function RistorantePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const r = getRestaurantBySlug(slug);
+  const r = await getRestaurantBySlug(slug);
 
   if (!r) {
     notFound();

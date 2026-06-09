@@ -1,4 +1,6 @@
 export type Restaurant = {
+  /** Identificativo del database (assente per gli esempi locali) */
+  id?: string;
   slug: string;
   name: string;
   city: string;
@@ -22,7 +24,8 @@ export type Restaurant = {
   website?: string;
 };
 
-export const restaurants: Restaurant[] = [
+/** Dati di esempio mostrati finché Supabase non è configurato. */
+export const sampleRestaurants: Restaurant[] = [
   {
     slug: "trattoria-da-mario",
     name: "Trattoria da Mario",
@@ -83,8 +86,48 @@ export const restaurants: Restaurant[] = [
   },
 ];
 
-export function getRestaurantBySlug(slug: string): Restaurant | undefined {
-  return restaurants.find((r) => r.slug === slug);
+/** Dati che si possono creare/modificare (senza id e slug). */
+export type RestaurantInput = Omit<Restaurant, "id" | "slug">;
+
+/** Normalizza e valida i dati del form. Ritorna null se mancano nome o città. */
+export function parseRestaurantInput(
+  body: Record<string, unknown>
+): RestaurantInput | null {
+  const name = String(body.name ?? "").trim();
+  const city = String(body.city ?? "").trim();
+  if (!name || !city) return null;
+
+  const ratingRaw = Number(body.rating);
+  const rating = Number.isFinite(ratingRaw)
+    ? Math.min(5, Math.max(1, Math.round(ratingRaw)))
+    : 5;
+
+  const toArray = (v: unknown) =>
+    Array.isArray(v) ? v.map((x) => String(x).trim()).filter(Boolean) : [];
+
+  const priceRange = (["€", "€€", "€€€", "€€€€"] as const).includes(
+    body.priceRange as RestaurantInput["priceRange"]
+  )
+    ? (body.priceRange as RestaurantInput["priceRange"])
+    : "€€";
+
+  return {
+    name,
+    city,
+    cuisine: String(body.cuisine ?? "").trim(),
+    rating,
+    visitedAt:
+      String(body.visitedAt ?? "").trim() ||
+      new Date().toISOString().slice(0, 10),
+    priceRange,
+    emoji: String(body.emoji ?? "").trim() || "🍽️",
+    shortReview: String(body.shortReview ?? "").trim(),
+    review: toArray(body.review),
+    dishes: toArray(body.dishes),
+    photos: toArray(body.photos),
+    mapQuery: String(body.mapQuery ?? "").trim(),
+    website: String(body.website ?? "").trim() || undefined,
+  };
 }
 
 export function formatVisit(date: string): string {
@@ -99,4 +142,14 @@ export function mapEmbedUrl(query: string): string {
   return `https://maps.google.com/maps?q=${encodeURIComponent(
     query
   )}&z=15&output=embed`;
+}
+
+/** Trasforma un nome in uno slug per l'URL (minuscolo, con trattini). */
+export function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
